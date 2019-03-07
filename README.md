@@ -25,6 +25,8 @@ We are going to be writing our code in a text editor. This is a program which le
 ### Step 2: Have a C++ compiler installed and working
 A compiler is a program which takes the text file we have written and turns it into something we can run. Compilers do not look like normal programs, with windows and graphics. Instead they are run using the command line. We will discuss this in class but for now, follow the instructions below, depending on which type of machine you will use.
 
+**If you have difficulties, come to the pre-class drop-in session.**
+
 #### Instructions for Mac and Linux
 1. Open Terminal.
 2. Type `c++` and press Enter.
@@ -37,9 +39,7 @@ First let's check that you haven't already got a C++ compiler on your computer. 
 2. Type `g++` and press Enter.
 3. If you get the error `g++: fatal error: no input files`, then you are good to go. If you get a different message, you don't have a C++ compiler installed and should continue following these instructions.
 4. To install the compiler, follow the instructions [on this YouTube video](https://www.youtube.com/watch?v=sXW2VLrQ3Bs). Is this awkward? Yes. Is it worth it? Yes!
-5. Check that it works by following steps 1--3 above. **If you get any other message, come to the pre-class drop-in session.**
-
-**If you have difficulties, come to the pre-class drop-in session.**
+5. Check that it works by following steps 1--3 above.
 
 #### Instructions for Windows (college machine)
 
@@ -67,7 +67,32 @@ In short: C++ is a robust, fast language whose steep learning curve makes it wor
 ### 2. Getting ready
 
 * Create a new folder somewhere
-* Open up Terminal or Command Prompt and navigate to that folder
+* Open up Terminal or Command Prompt and navigate to that folder using `cd`
 
-### 2. Awareness of the Matlab desktop environment
-* The command window allows for call-and-response interface
+### 3. Hello world!
+
+* Open up Atom
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+   cout << "Hello world!" << endl;
+   return 0;
+}
+```
+
+* Save as `helloworld.cpp` (colours!)
+* Compile by going to the command line and typing
+```bash
+c++ helloworld.cpp -o hello
+```
+(or `g++` on Windows)
+
+* Then run the program
+```bash
+./hello
+```
