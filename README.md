@@ -2,9 +2,9 @@
 Introduction to C++ course for the CM Hub at Imperial College
 
 * **Part 0:** Setting up C++
-* **Part 1:** Hello world!
-* **Part 2:** ?
-* **Part 3:** ?
+* **Part 1:** Hello world! Your first steps with C++
+* **Part 2:** Functions
+* **Part 3:** C++ with maths in mind
 
 ## Part 0. Setting up C++
 
@@ -80,8 +80,8 @@ using namespace std;
 
 int main()
 {
-   cout << "Hello world!" << endl;
-   return 0;
+    cout << "Hello world!" << endl;
+    return 0;
 }
 ```
 
@@ -96,3 +96,168 @@ c++ helloworld.cpp -o hello
 ```bash
 ./hello
 ```
+
+Try:
+* Adding an extra line to the message
+
+### 4. Use of variables
+Join in:
+* `int x;`
+* `x = 4;`
+* `cout << "The value of x is" << x << endl;`
+* Compile and run.
+
+Your turn:
+* Change the code so it prints *2x* instead.
+* Let *x* = 3.9. What do you expect to happen? What happens?
+
+Join in:
+* `double x;`
+* `double y;`
+* `cout << "The value of x is " << x << "and the value of y is" << y << endl;`
+* Compile and run.
+
+Your turn:
+* Change the code so that it also prints out the product of *x* and *y*.
+
+### 5. Command-line input
+Join in:
+* New file! `height.cpp`
+```c++
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    string name;
+    float height;
+    cout << "What is your name?" << endl;
+    cin >> name;
+    cout << "What is your height?" << endl;
+    cin >> height;
+    cout << name << "is" << height << "metres tall."
+    return 0;
+}
+```
+* Compile and run.
+
+Your turn:
+* Convert the height into feet (1 metre = 3.28084 feet)
+* Convert the height into feet and inches (1 foot = 12 inches). For example, entering 1.81 (metres) should produce "5 feet 11 inches". Hint: `a%b` = *a* mod *b*.
+* What happens if we type nonsense into the inputs?
+
+### 6. Maths
+Basic arithmetic works out of the box, as you've seen. For 'scientific calculator' stuff, we need the `<cmath>` library. Libraries are like toolboxes.
+
+Join in:
+* New file! `calculator.cpp`
+```c++
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+    float x;
+    cout << "Enter a number" << endl;
+    cin >> x;
+    cout << "That number squared is" << pow(x,2) << endl;
+    cout << "The square root of that number is" << sqrt(x) << endl;
+    return 0;
+}
+```
+
+Your turn:
+* Add a line displaying the sine of the inputted number.
+* Change the code so that it inputs two integers, *a* and *b*, and displays *a*/*b*.
+
+### 7. If
+Join in:
+* New file! `bartender.cpp`
+```c++
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int age;
+    cout << "Welcome to the pub." << endl;
+    cout << "What is your age?" << endl;
+    cin >> age;
+    if(age >= 18){
+        cout << "Have a pint!" << endl;
+    }
+    cout << "Goodbye!" << endl;
+    return 0;
+}
+```
+* Compile and run!
+* Let's make it more fun with `else`
+```c++
+if(age > 18){
+    cout << "Have a pint!" << endl;
+} else if(age == 18){
+    cout << "Show me your ID and then have a pint!" << endl;
+} else {
+    cout << "I'm calling the police." << endl;
+}
+```
+* Compile and run!
+
+Your turn:
+* Also input the name of the customer
+* If the name of the customer does not equal your name, get the bartender to ask for money. Hint: `!=` is 'not equal to' in C++.
+
+### 8. For and while loops
+Join in:
+* New file! `square_numbers.cpp`
+```c++
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+    int n = 10;
+    for(int i=0; i<10; ++i){
+        cout << pow(i,2) << endl;
+    }
+    return 0;
+}
+```
+
+Try:
+* Change the script to display the 3rd to 9th cubes.
+
+Join in:
+* Change the file: let's **comment out** the for loop above and instead write it as a while loop.
+```c++
+int i=3; // We can define and initialise a variable at the same time.
+while(i<10){
+    cout << pow(i,3) << endl;
+    ++i;
+}
+```
+
+Try:
+* Change the script to display the 3rd, 5th, 7th and 9th cubes (i.e. go up in 2s, not in 1s)
+
+Try:
+* The Collatz conjecture: create a new script, `collatz.cpp`, which inputs a number *n*, and while *n* does not equal 1:
+    * Let *f* = *n*/2 if *n* is even
+    * Let *f* = 3*n* + 1 if *n* is odd
+    * Let *n* = *f*
+
+
+### End of day 1 challenge
+* Create a program which .........
+
+
+
+
+
+Cursed day or lucky day.
