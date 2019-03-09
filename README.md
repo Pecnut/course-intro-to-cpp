@@ -4,7 +4,13 @@ Introduction to C++ course for the CM Hub at Imperial College
 * **Part 0:** Setting up C++
 * **Part 1:** Hello world! Your first steps with C++
 * **Part 2:** Functions
-* **Part 3:** C++ with maths in mind
+* **Part 3:** ~~C++ with maths in mind~~
+
+## Aims of the course
+
+* You can write a simple C++ program
+* You can understand and edit more complicated C++ programs you have been given
+* You feel comfortable searching online for help
 
 ## Part 0. Setting up C++
 
@@ -122,9 +128,10 @@ Your turn:
 
 ### 5. Command-line input
 Join in:
-* New file! `height.cpp`
+* New file! `height.cpp`. Note that we're going to use strings here, which need the `<string>` library.
 ```c++
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -223,14 +230,16 @@ using namespace std;
 int main()
 {
     int n = 10;
-    for(int i=0; i<10; ++i){
+    for(int i=0; i<n; ++i){
         cout << pow(i,2) << endl;
     }
     return 0;
 }
 ```
+* Compile and run!
 
 Try:
+* Save the script as `cube_numbers.cpp`
 * Change the script to display the 3rd to 9th cubes.
 
 Join in:
@@ -247,17 +256,324 @@ Try:
 * Change the script to display the 3rd, 5th, 7th and 9th cubes (i.e. go up in 2s, not in 1s)
 
 Try:
-* The Collatz conjecture: create a new script, `collatz.cpp`, which inputs a number *n*, and while *n* does not equal 1:
+* The Collatz conjecture: create a new script, `collatz_conjecture.cpp`, which inputs a number *n*, and while *n* does not equal 1:
     * Let *f* = *n*/2 if *n* is even
     * Let *f* = 3*n* + 1 if *n* is odd
+    * Display *f*
     * Let *n* = *f*
 
+### 9. Saving and reading data
 
-### End of day 1 challenge
-* Create a program which .........
+To save and read file, we need to include the `<fstream>` library.
+
+Join in:
+
+* New file! `save_to_file.cpp`
+
+```c++
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+    ofstream myfile;
+    myfile.open ("greeting.txt");
+    myfile << "Hello there!" << endl;
+    myfile.close();
+
+    return 0;
+}
+```
+
+Your turn:
+* Print the first 10 squares to a text file.
+
+Join in:
+
+* Now read in...
+
+* New file! `read_from_file.cpp`
+
+```c++
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    string line;
+    ifstream myfile;
+    myfile.open ("greeting.txt");
+    while (getline(myfile,line)){
+        cout << line << endl;
+    }
+    myfile.close();
+
+    return 0;
+}
+```
+
+### 10. Arrays
+
+Join in:
+
+* Edit `square_numbers.cpp`
+```c++
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+    int n = 10;
+    int square_numbers[10];
+    for(int i=0; i<n; ++i){
+        square_numbers[i] = pow(i,2);
+    }
+    for(int i=0; i<n; ++i){
+        cout << square_numbers[i] << endl;
+    }    
+    return 0;
+}
+```
+* Note you can't `cout` an array
+* We can also define arrays like this:
+```c++
+int main()
+{
+    int n = 10;
+    int square_numbers[10];
+    int favourite_numbers[10];
+
+    for(int i=0; i<n; ++i){
+        square_numbers[i] = pow(i,2);
+    }
+
+    favourite_numbers = {3, 1, -4, 1}; // Note we haven't defined them all.
+
+    for(int i=0; i<n; ++i){
+        cout << square_numbers[i] << endl;
+    }    
+    for(int i=0; i<n; ++i){
+        cout << favourite_numbers[i] << endl;
+    }        
+
+    return 0;
+}
+```
+* We can also declare:
+    * `int favourite_numbers[10] {3,1,-4,1}`
+    * `int favourite_numbers[] {3,1,-4,1}`
+
+* Multidimensional arrays work too
+    * `int magic_square[3][3] = {{4,9,2},{3,5,7},{8,1,6}}`
+
+* Some basic functionality exists
+    * `#include <algorithm>`
+    * `max_element(favourite_numbers)`
+
+Try:
+* Create a new file `multiplication_table.cpp`. We are going to make it print a 10x10 multiplication table. Make it:
+    * Set up a 10x10 array `product`.
+    * Loop through all rows and columns, so that `product[row][col] = row * col;`
+    * Loop through all rows and columns again, `cout`ing appropriately the elements of the table.
+
+ Join in:
+ * `const int numRows = 10;`
 
 
+### 11. Functions and header files
 
+Writing functions allows us to do more complicated things.
 
+Join in:
 
-Cursed day or lucky day.
+* New file! `learning_functions.cpp`
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+int sign_function(int n)
+{
+    int sign;
+    if(n>0){
+        sign = 1;
+    } else if(n==0){
+        sign = 0;
+    } else {
+        sign = -1;
+    }
+    return sign;
+}
+
+int main()
+{
+    int n;
+    n = 3;
+    cout << sign_function(n) << endl;
+
+    return 0;
+}
+```
+* Global and local variables.
+* Note: order is important. What happens if you define `sign_function` after `main`?
+
+Your turn:
+
+* Add an extra function to this file, `absolute_value`, which returns the absolute value of an integer which is passed to it.
+* Add an extra line to the `main` function so that it also displays the absolute value of *n*.
+
+Join in:
+
+* There is a way to define functions with `main` first: it's called 'forward declaration'.
+* In general, this is better because it allows more flexible code.
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+int sign_function(int n);
+
+int main()
+{
+    int n;
+    n = 3;
+    cout << sign_function(n) << endl;
+
+    return 0;
+}
+
+int sign_function(int n)
+{
+    int sign;
+    if(n>0){
+        sign = 1;
+    } else if(n==0){
+        sign = 0;
+    } else {
+        sign = -1;
+    }
+    return sign;
+}
+
+```
+* Compile and run!
+* Now we're going to split our `sign_function` and `absolute_value` functions into separate files, and call them from our main file.
+
+`learning_functions.cpp`:
+```c++
+#include <iostream>
+
+using namespace std;
+
+int sign_function(int n);
+int absolute_value(int n);
+
+int main()
+{
+    int n;
+    n = 3;
+    cout << sign_function(n) << endl;
+
+    return 0;
+}
+```
+
+`sign_function.cpp`:
+```c++
+#include <iostream> // not strictly necessary
+
+using namespace std;
+
+int sign_function(int n)
+{
+    int sign;
+    if(n>0){
+        sign = 1;
+    } else if(n==0){
+        sign = 0;
+    } else {
+        sign = -1;
+    }
+    return sign;
+}
+```
+
+`absolute_value.cpp`:
+```c++
+#include <iostream> // not strictly necessary
+
+using namespace std;
+
+int absolute_value(int n)
+{
+    return abs(n);
+}
+```
+
+* And now we compile like this:
+```bash
+c++ sign_function.cpp absolute_value.cpp learning_functions.cpp -o sign
+```
+* All these forward declarations can be tiresome, so we can put them in a header file and `#include` it:
+
+`learning_functions.hpp`:
+```c++
+int sign_function(int n);
+int absolute_value(int n);
+```
+
+`learning_functions.cpp`:
+```c++
+#include <iostream>
+#include "learning_functions.hpp" // double quotes for user-defined header files
+
+using namespace std;
+
+int main()
+{
+    int n;
+    n = 3;
+    cout << sign_function(n) << endl;
+
+    return 0;
+}
+```
+
+(`sign_function.cpp` and `absolute_value.cpp` unchanged)
+
+* Compile and run, remembering to include all files in the compile command.
+* The header file is also a good place to put constants you want to have pre-defined in all of the files in your project.
+
+### 12. Libraries for mathematics
+
+To do more advanced linear algebra in C++, you need to use a specialised library. I recommend [Armadillo](http://arma.sourceforge.net/), which uses syntax quite similar to that used in Matlab or Python (with NumPy). Setup is different for different operating systems but the instructions are pretty good.
+
+### 13. Optimisation
+* When compiling, use the flag `-O2` to optimise for speed a little bit. Use `-O3` for more optimisation. `-O0` is the default. Example:
+```bash
+c++ helloworld.cpp -o hello -O3
+```
+
+### 999. Extra stuff we won't do
+
+#### Installing Armadillo
+
+1. Download the stable version from [the Armadillo website](http://arma.sourceforge.net/download.html). It comes as a `.tar.xz` file.
+2. Unzip this file. On Windows, you might need to use [7-Zip](https://www.7-zip.org/) to unzip it.
+3. Move the armadillo folder to the folder you are creating the C++ files in.
+4. Compile along these lines:
+```bash
+    g++ example1.cpp -o example1 -O2 -I ./armadillo-7.200.3/include -DARMA_DONT_USE_WRAPPER -lblas -llapack
+```
+Replace -lblas with -lopenblas if you have OpenBLAS. On macOS, replace -lblas -llapack with -framework Accelerate
+
+#### Debugging
