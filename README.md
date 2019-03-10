@@ -3,8 +3,8 @@ Introduction to C++ course for the CM Hub at Imperial College
 
 * **Part 0:** Setting up C++
 * **Part 1:** Hello world! Your first steps with C++
-* **Part 2:** Functions
-* **Part 3:** ~~C++ with maths in mind~~
+* **Part 2:** Ifs, loops, and arrays
+* **Part 3:** Functions, header files, classes and preparing for real science
 
 ## Aims of the course
 
@@ -64,7 +64,8 @@ Pros of C++:
 
 Cons of C++:
 * Ideosyncratic
-* Steep learning curve
+* Steep learning curve; difficult to get started
+* Lacks features out of the box
 * Not obvious how best to use for science
 * Difficult to debug
 
@@ -108,19 +109,42 @@ Try:
 
 ### 4. Use of variables
 Join in:
-* `int x;`
-* `x = 4;`
-* `cout << "The value of x is" << x << endl;`
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int x;
+    x = 4;
+    cout << "The value of x is" << x << endl;
+    return 0;
+}
+```
 * Compile and run.
 
 Your turn:
-* Change the code so it prints *2x* instead.
+* Change the code so it prints 2*x* instead.
 * Let *x* = 3.9. What do you expect to happen? What happens?
 
 Join in:
-* `double x;`
-* `double y;`
-* `cout << "The value of x is " << x << "and the value of y is" << y << endl;`
+```c++
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    double x;
+    double y;
+    x = 3.141;
+    y = 1.618;
+    cout << "The value of x is " << x << "and the value of y is" << y << endl;
+    return 0;
+}
+```
 * Compile and run.
 
 Your turn:
@@ -179,6 +203,8 @@ int main()
 Your turn:
 * Add a line displaying the sine of the inputted number.
 * Change the code so that it inputs two integers, *a* and *b*, and displays *a*/*b*.
+
+## Part 2. Ifs, loops, and arrays
 
 ### 7. If
 Join in:
@@ -384,8 +410,9 @@ Try:
     * Loop through all rows and columns again, `cout`ing appropriately the elements of the table.
 
  Join in:
- * `const int numRows = 10;`
+ * `const int n = 10;`
 
+## Part 3. Functions, header files, classes and preparing for real science
 
 ### 11. Functions and header files
 
@@ -553,11 +580,135 @@ int main()
 * Compile and run, remembering to include all files in the compile command.
 * The header file is also a good place to put constants you want to have pre-defined in all of the files in your project.
 
-### 12. Libraries for mathematics
+### 12. Classes
+Classes are one of the main things that separate C++ from C. Classes are ways for us to set up objects that have properties and functions which are particular to that type of object.
 
-To do more advanced linear algebra in C++, you need to use a specialised library. I recommend [Armadillo](http://arma.sourceforge.net/), which uses syntax quite similar to that used in Matlab or Python (with NumPy). Setup is different for different operating systems but the instructions are pretty good.
+Join in:
+* New file `rectangles.cpp`
+```c++
+#include <iostream>
 
-### 13. Optimisation
+using namespace std;
+
+class Rectangle {
+   public:
+      double width;   // Length of rectangle
+      double height;   // Height of rectangle
+};
+
+int main() {
+   Rectangle Rec1;        // Declare Rec1 of type Rectangle
+
+   // Rec1 specification
+   Rec1.height = 5.0;
+   Rec1.width = 6.0;
+
+   double area;
+
+   // area of Rec1
+   area = Rec1.height * Rec1.width;
+   cout << "Area of Rec1: " << area << endl;
+
+   return 0;
+}
+```
+
+Your turn:
+
+* Add another rectangle, `Rec2`
+
+You should get something like:
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+class Rectangle {
+   public:
+      double width;   // Length of rectangle
+      double height;   // Height of rectangle
+};
+
+int main() {
+   Rectangle Rec1;        // Declare Rec1 of type Rectangle
+   Rectangle Rec2;        // Declare Rec2 of type Rectangle
+
+   // Rec1 specification
+   Rec1.height = 5.0;
+   Rec1.width = 6.0;
+
+   // Rec2 specification
+   Rec2.height = 10.0;
+   Rec2.width = 12.0;
+
+   double area;
+
+   // area of Rec1
+   area = Rec1.height * Rec1.width;
+   cout << "Area of Rec1: " << area << endl;
+
+   // area of Rec2
+   area = Rec2.height * Rec2.width;
+   cout << "Area of Rec2: " << area << endl;
+
+   return 0;
+}
+```
+
+Join in:
+
+* Let's make area a 'member function' of the class (so we can call `Rec1.area()`, for example)
+
+```c++
+class Rectangle {
+   public:
+      double width;   // Length of rectangle
+      double height;   // Height of rectangle
+      int area() {return width*height;}
+};
+
+```
+
+Your turn:
+
+* Replace `area = Rec1.height * Rec1.width;` with `area = Rec1.area();` and see that it works.
+* Add a member function `length_of_diagonal` which returns the length of the diagonal.
+
+Join in:
+
+* We're going to look at another way of creating a member function. This is entirely equivalent.
+
+```c++
+class Rectangle {
+   public:
+      double width;   // Length of rectangle
+      double height;   // Height of rectangle
+      int area() {return width*height;}
+};
+
+void Rectangle::set_dimensions (int x, int y) {
+  width = x;
+  height = y;
+}
+```
+
+Your turn:
+
+* Replace `Rec1.height = 5.0;` and `Rec1.width = 6.0;` with a call to `Rec1.set_dimensions`
+
+If you want to use `Rectangle` in lots of files, it's annoying to define it every time.
+
+Your turn:
+
+* Put the class declaration and `set_dimensions` definition in a header file, `rectangle.hpp`, and call it from `rectangles.cpp`
+
+### 13. Libraries for mathematics
+
+* Complex numbers: use `<complex>` library
+* Linear algebra: for vector/matrix support, I recommend [Armadillo](http://arma.sourceforge.net/), which uses syntax quite similar to that used in Matlab or Python (with NumPy). Setup is different for different operating systems but the instructions are pretty good.
+
+### 14. Optimisation
 * When compiling, use the flag `-O2` to optimise for speed a little bit. Use `-O3` for more optimisation. `-O0` is the default. Example:
 ```bash
 c++ helloworld.cpp -o hello -O3
