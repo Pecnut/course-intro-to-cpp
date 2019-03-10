@@ -119,7 +119,7 @@ int main()
 {
     int x;
     x = 4;
-    cout << "The value of x is" << x << endl;
+    cout << "The value of x is " << x << endl;
     return 0;
 }
 ```
@@ -128,6 +128,7 @@ int main()
 Your turn:
 * Change the code so it prints 2*x* instead.
 * Let *x* = 3.9. What do you expect to happen? What happens?
+* What happens if you forget to add the semicolon?
 
 Join in:
 ```c++
@@ -141,7 +142,7 @@ int main()
     double y;
     x = 3.141;
     y = 1.618;
-    cout << "The value of x is " << x << "and the value of y is" << y << endl;
+    cout << "The value of x is " << x << " and the value of y is " << y << endl;
     return 0;
 }
 ```
@@ -162,12 +163,12 @@ using namespace std;
 int main()
 {
     string name;
-    float height;
+    double height;
     cout << "What is your name?" << endl;
     cin >> name;
     cout << "What is your height?" << endl;
     cin >> height;
-    cout << name << "is" << height << "metres tall."
+    cout << name << " is " << height << " metres tall." << endl;
     return 0;
 }
 ```
@@ -175,7 +176,9 @@ int main()
 
 Your turn:
 * Convert the height into feet (1 metre = 3.28084 feet)
-* Convert the height into feet and inches (1 foot = 12 inches). For example, entering 1.81 (metres) should produce "5 feet 11 inches". Hint: `a%b` = *a* mod *b*.
+* Harder: Convert the height into feet and inches (1 foot = 12 inches), rounding down to an integer number of inches. For example, entering 1.81 (metres) should produce "5 feet 11 inches".
+    * Hint 1: If `a` and `b` are integers, then `a%b` = *a* mod *b*.
+    * Hint 2: Convert to an integer number of inches first.
 * What happens if we type nonsense into the inputs?
 
 ### 6. Maths
@@ -191,11 +194,11 @@ using namespace std;
 
 int main()
 {
-    float x;
+    double x;
     cout << "Enter a number" << endl;
     cin >> x;
-    cout << "That number squared is" << pow(x,2) << endl;
-    cout << "The square root of that number is" << sqrt(x) << endl;
+    cout << "That number squared is " << pow(x,2) << endl;
+    cout << "The square root of that number is " << sqrt(x) << endl;
     return 0;
 }
 ```
@@ -203,6 +206,7 @@ int main()
 Your turn:
 * Add a line displaying the sine of the inputted number.
 * Change the code so that it inputs two integers, *a* and *b*, and displays *a*/*b*.
+* Input *a* as 3, and *b* as 2. What do you notice?
 
 ## Part 2. Ifs, loops, and arrays
 
@@ -242,7 +246,9 @@ if(age > 18){
 
 Your turn:
 * Also input the name of the customer
-* If the name of the customer does not equal your name, get the bartender to ask for money. Hint: `!=` is 'not equal to' in C++.
+* If the name of the customer does not equal your name, get the bartender to ask for money.
+    * Hint: `!=` is 'not equal to' in C++.
+    * Maybe useful: in `if` statements, `&&` is AND, `||` is OR.
 
 ### 8. For and while loops
 Join in:
@@ -272,13 +278,14 @@ Join in:
 * Change the file: let's **comment out** the for loop above and instead write it as a while loop.
 ```c++
 int i=3; // We can define and initialise a variable at the same time.
-while(i<10){
+while(i<n){
     cout << pow(i,3) << endl;
     ++i;
 }
 ```
 
 Try:
+* Replace `++i` with the more verbose command `i = i+1` and convince yourself that it is equivalent.
 * Change the script to display the 3rd, 5th, 7th and 9th cubes (i.e. go up in 2s, not in 1s)
 
 Try:
@@ -315,11 +322,12 @@ int main()
 
 Your turn:
 * Print the first 10 squares to a text file.
+* Run your program again. What can you say about how it writes to the text file?
+* Replace `myfile.open ("square_numbers.txt");` with `myfile.open ("square_numbers.txt", ios_base::app);` to make C++ append to the end of a text file, rather than overwrite.
 
 Join in:
 
-* Now read in...
-
+* Now let's read in!
 * New file! `read_from_file.cpp`
 
 ```c++
@@ -374,13 +382,11 @@ int main()
 {
     int n = 10;
     int square_numbers[10];
-    int favourite_numbers[10];
+    int favourite_numbers[10] = {3, 1, -4, 1}; // Note we haven't defined them all.;
 
     for(int i=0; i<n; ++i){
         square_numbers[i] = pow(i,2);
     }
-
-    favourite_numbers = {3, 1, -4, 1}; // Note we haven't defined them all.
 
     for(int i=0; i<n; ++i){
         cout << square_numbers[i] << endl;
@@ -392,16 +398,16 @@ int main()
     return 0;
 }
 ```
+* You can only use curly brackets like this at initialisation time.
 * We can also declare:
-    * `int favourite_numbers[10] {3,1,-4,1}`
-    * `int favourite_numbers[] {3,1,-4,1}`
+    * `int favourite_numbers[] = {3,1,-4,1};`
 
 * Multidimensional arrays work too
-    * `int magic_square[3][3] = {{4,9,2},{3,5,7},{8,1,6}}`
+    * `int magic_square[3][3] = {{4,9,2},{3,5,7},{8,1,6}};`
 
 * Some basic functionality exists
-    * `#include <algorithm>`
-    * `max_element(favourite_numbers)`
+    * `    max_favourite = *max_element(favourite_numbers,favourite_numbers+10);
+;`
 
 Try:
 * Create a new file `multiplication_table.cpp`. We are going to make it print a 10x10 multiplication table. Make it:
@@ -509,6 +515,7 @@ int main()
     int n;
     n = 3;
     cout << sign_function(n) << endl;
+    cout << absolute_value(n) << endl;
 
     return 0;
 }
@@ -592,7 +599,7 @@ using namespace std;
 
 class Rectangle {
    public:
-      double width;   // Length of rectangle
+      double width;    // Width of rectangle
       double height;   // Height of rectangle
 };
 
@@ -626,7 +633,7 @@ using namespace std;
 
 class Rectangle {
    public:
-      double width;   // Length of rectangle
+      double width;    // Width of rectangle
       double height;   // Height of rectangle
 };
 
@@ -673,11 +680,12 @@ class Rectangle {
 Your turn:
 
 * Replace `area = Rec1.height * Rec1.width;` with `area = Rec1.area();` and see that it works.
-* Add a member function `length_of_diagonal` which returns the length of the diagonal.
+* Add a member function `perimeter` which returns the length of the perimeter.
 
 Join in:
 
 * We're going to look at another way of creating a member function. This is entirely equivalent.
+* Just like how we forward declared functions earlier, we can forward declare them here.
 
 ```c++
 class Rectangle {
@@ -685,9 +693,10 @@ class Rectangle {
       double width;   // Length of rectangle
       double height;   // Height of rectangle
       int area() {return width*height;}
+      void set_dimensions (double,double);
 };
 
-void Rectangle::set_dimensions (int x, int y) {
+void Rectangle::set_dimensions (double x, double y) {
   width = x;
   height = y;
 }
