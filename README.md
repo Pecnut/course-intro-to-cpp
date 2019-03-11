@@ -704,6 +704,7 @@ Your turn:
 
 * Complex numbers: use `<complex>` library
 * Linear algebra: for vector/matrix support, I recommend [Armadillo](http://arma.sourceforge.net/), which uses syntax quite similar to that used in Matlab or Python (with NumPy). Setup is different for different operating systems but the instructions are pretty good.
+* Parallel processing: use OpenMP
 
 ### 14. Optimisation
 * When compiling, use the flag `-O2` to optimise for speed a little bit. Use `-O3` for more optimisation. `-O0` is the default. Example:
