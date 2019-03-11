@@ -85,9 +85,13 @@ int main()
 ```bash
 c++ helloworld.cpp -o hello
 ```
-(or `g++` on Windows)
+(or possibly `g++` on your own machine)
 
-* Then run the program
+* Then run the program. On Windows this is done with
+```bash
+hello
+```
+and on Mac/Linux, with
 ```bash
 ./hello
 ```
