@@ -49,7 +49,12 @@ First let's check that you haven't already got a C++ compiler on your computer. 
 
 #### Instructions for Windows (college machine)
 
-(For Krishna!)
+1. Open a browser and navigate to Imperial College [Software Hub](https://softwarehub.imperial.ac.uk/?labs)
+2. Search for `atom` in the search box
+3. The Atom text editor (v1.29.0 as of Mar 11, 2019) is one of the few search results. Just click `launch`  - done!
+4. Clear the search box and then search for `mingw` in the search box
+5. Among the small set of search results that pop up, launch `MinGW x64 7.3.0` (as of Mar 11, 2019).
+6. You are all set!
 
 ## Part 1. Hello world!
 
