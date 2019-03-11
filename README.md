@@ -14,42 +14,28 @@ Introduction to C++ course for the CM Hub at Imperial College
 
 ## Part 0. Setting up C++
 
-**To do before coming to class. If you need some help completing this section, come to the pre-class drop-in at 00:00**
+In this class, we are going to be using C++ as it is installed on the college computers. If you want to use your own machine, that's OK too, but the setup can be a bit awkward and we are unlikely to have time to support it. In case you want to install C++ on your own machine, the instructions are included [in the appendix](#appendix).
 
-Before we start the class, you need to get C++ set up on your machine.
+For some programming languages, like Matlab, there is just one program you need to open to write your code and then run it. For others, like C++, you will need one program to write your code, and then one program to *compile* it.
 
-For some programming languages, like Matlab, there is just one program you need to open to write your code and then run it. For others, like C++, you will need one program to write your code, and then one program to 'compile' it: i.e., turn it into something you can run.
+A *compiler* is a program which takes the text file we have written and turns it into something we can run. Compilers do not look like normal programs, with windows and graphics. Instead they are run using the *command line*, or *terminal*.
 
-Before you come to class, you need to complete the following steps:
+We are going to have two windows open at the same time:
 
-1. Have a text editor ready (we recommend [Atom](https://atom.io/))
-2. Have a C++ compiler installed and working
+1. A text editor (we are going to use [Atom](https://atom.io/))
+2. The command line or terminal, where a C++ compiler has already been installed and is working
 
-### Step 1: Have a text editor ready
-We are going to be writing our code in a text editor. This is a program which lets us produce plain text files. There are lots of choices available, but we recommend downloading [Atom](https://atom.io/).
+### Getting C++ set up on the college computers
+1. Open a browser and navigate to Imperial College [Software Hub](https://softwarehub.imperial.ac.uk/?labs)
+2. Search for `atom` in the search box
+3. The Atom text editor (v1.29.0 as of Mar 11, 2019) is one of the few search results. Just click `launch`  - done!
+4. Clear the search box and then search for `mingw` in the search box
+5. Among the small set of search results that pop up, launch `MinGW x64 7.3.0` (as of Mar 11, 2019).
+6. You are all set!
 
-### Step 2: Have a C++ compiler installed and working
-A compiler is a program which takes the text file we have written and turns it into something we can run. Compilers do not look like normal programs, with windows and graphics. Instead they are run using the command line. We will discuss this in class but for now, follow the instructions below, depending on which type of machine you will use.
+### Getting C++ set up on your own machine
+See [the appendix](#appendix).
 
-**If you have difficulties, come to the pre-class drop-in session.**
-
-#### Instructions for Mac and Linux
-1. Open Terminal.
-2. Type `c++` and press Enter.
-3. If it says `clang: error: no input files` or `c++: fatal error: no input files`, then you are ready to go. **If you get any other message, come to the pre-class drop-in session.**
-
-#### Instructions for Windows (your own computer)
-First let's check that you haven't already got a C++ compiler on your computer. If you have installed Fortran in the past, you might already have a C++ compiler.
-
-1. Open Command Prompt from the Start menu (right-click the Start button and select Command Prompt).
-2. Type `g++` and press Enter.
-3. If you get the error `g++: fatal error: no input files`, then you are good to go. If you get a different message, you don't have a C++ compiler installed and should continue following these instructions.
-4. To install the compiler, follow the instructions [on this YouTube video](https://www.youtube.com/watch?v=sXW2VLrQ3Bs). Is this awkward? Yes. Is it worth it? Yes!
-5. Check that it works by following steps 1--3 above.
-
-#### Instructions for Windows (college machine)
-
-(For Krishna!)
 
 ## Part 1. Hello world!
 
@@ -73,8 +59,10 @@ In short: C++ is a robust, fast language whose steep learning curve makes it wor
 
 ### 2. Getting ready
 
-* Create a new folder somewhere
-* Open up Terminal or Command Prompt and navigate to that folder using `cd`
+1. Create a new directory in your home drive (H:) called `cpp`. We are going to save our files in here.
+2. On the command line:
+    1. Change directory to the H: drive by typing `H:`
+    2. Change directory to your new `cpp` directory by typing `cd cpp`
 
 ### 3. Hello world!
 
@@ -723,9 +711,34 @@ Your turn:
 c++ helloworld.cpp -o hello -O3
 ```
 
-### 999. Extra stuff we won't do
+# Appendix
 
-#### Installing Armadillo
+## A1. Getting C++ set up on your own machine
+Follow the instructions below, depending on which type of machine you will use.
+
+### Step 1: Have a text editor ready
+We are going to be writing our code in a text editor. This is a program which lets us produce plain text files. There are lots of choices available, but we recommend downloading [Atom](https://atom.io/).
+
+### Step 2: Have a C++ compiler installed and working
+A compiler is a program which takes the text file we have written and turns it into something we can run. Compilers do not look like normal programs, with windows and graphics. Instead they are run using the command line. We will discuss this in class but for now, follow the instructions below, depending on which type of machine you will use.
+
+#### Instructions for Mac and Linux
+1. Open Terminal.
+2. Type `c++` and press Enter.
+3. If it says `clang: error: no input files` or `c++: fatal error: no input files`, then you are ready to go.
+
+#### Instructions for Windows (your own computer)
+First let's check that you haven't already got a C++ compiler on your computer. If you have installed Fortran in the past, you might already have a C++ compiler.
+
+1. Open Command Prompt from the Start menu (right-click the Start button and select Command Prompt).
+2. Type `g++` and press Enter.
+3. If you get the error `g++: fatal error: no input files`, then you are good to go. If you get a different message, you don't have a C++ compiler installed and should continue following these instructions.
+4. To install the compiler, follow the instructions [on this YouTube video](https://www.youtube.com/watch?v=sXW2VLrQ3Bs). Is this awkward? Yes. Is it worth it? Yes!
+5. Check that it works by following steps 1--3 above.
+
+## A2. Extra stuff we won't do
+
+### Installing Armadillo
 
 1. Download the stable version from [the Armadillo website](http://arma.sourceforge.net/download.html). It comes as a `.tar.xz` file.
 2. Unzip this file. On Windows, you might need to use [7-Zip](https://www.7-zip.org/) to unzip it.
@@ -736,4 +749,4 @@ c++ helloworld.cpp -o hello -O3
 ```
 Replace -lblas with -lopenblas if you have OpenBLAS. On macOS, replace -lblas -llapack with -framework Accelerate
 
-#### Debugging
+### Debugging
