@@ -14,7 +14,7 @@ Introduction to C++ course for the CM Hub at Imperial College
 
 ## Part 0. Setting up C++
 
-In this class, we are going to be using C++ as it is installed on the college computers. If you want to use your own machine, that's OK too, but the setup can be a bit awkward and we are unlikely to have time to support it. In case you want to install C++ on your own machine, the instructions are included [in the appendix](#appendix).
+In this class, we are going to be using C++ as it is installed on the college computers running Windows. Everything in these instructions will work just fine on your personal Mac or Linux machines. However. if you want to use your own Windows machine, that's OK too, but the setup can be a bit awkward and we are unlikely to have time to support it. In case you want to install a C++ compiler on your own Windows computer, the instructions are included [in the appendix](#appendix).
 
 For some programming languages, like Matlab, there is just one program you need to open to write your code and then run it. For others, like C++, you will need one program to write your code, and then one program to *compile* it.
 
