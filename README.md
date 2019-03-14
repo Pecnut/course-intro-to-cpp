@@ -3,8 +3,8 @@ Introduction to C++ course for the CM Hub at Imperial College
 
 * **Part 0:** Setting up C++
 * **Part 1:** Hello world! Your first steps with C++
-* **Part 2:** Ifs, loops, and arrays
-* **Part 3:** Functions, header files, classes and preparing for real science
+* **Part 2:** Arrays, files and functions
+* **Part 3:** Classes and preparing for real science
 
 ## Aims of the course
 
@@ -200,8 +200,6 @@ Your turn:
 * Change the code so that it inputs two integers, *a* and *b*, and displays *a*/*b*.
 * Input *a* as 3, and *b* as 2. What do you notice?
 
-## Part 2. Ifs, loops, and arrays
-
 ### 7. If
 Join in:
 * New file! `bartender.cpp`
@@ -279,6 +277,10 @@ while(i<n){
 Try:
 * Replace `++i` with the more verbose command `i = i+1` and convince yourself that it is equivalent.
 * Change the script to display the 3rd, 5th, 7th and 9th cubes (i.e. go up in 2s, not in 1s)
+
+## Part 2. Arrays, files and functions
+
+### Challenge to see if you remember what we did last time
 
 Try:
 * The Collatz conjecture: create a new script, `collatz_conjecture.cpp`, which inputs a number *n*, and while *n* does not equal 1:
@@ -409,8 +411,6 @@ Try:
 
  Join in:
  * `const int n = 10;`
-
-## Part 3. Functions, header files, classes and preparing for real science
 
 ### 11. Functions and header files
 
@@ -578,6 +578,8 @@ int main()
 
 * Compile and run, remembering to include all files in the compile command.
 * The header file is also a good place to put constants you want to have pre-defined in all of the files in your project.
+
+## Part 3. Classes and preparing for real science
 
 ### 12. Classes
 Classes are one of the main things that separate C++ from C. Classes are ways for us to set up objects that have properties and functions which are particular to that type of object.
