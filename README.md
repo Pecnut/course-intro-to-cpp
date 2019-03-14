@@ -706,13 +706,50 @@ Your turn:
 
 * Put the class declaration and `set_dimensions` definition in a header file, `rectangle.hpp`, and call it from `rectangles.cpp`
 
-### 13. Libraries for mathematics
+### 13. Armadillo, for vectors and matrices
+
+[Armadillo](http://arma.sourceforge.net/) is a linear algebra library for C++ which uses syntax quite similar to that used in Matlab or Python (with NumPy). Setup is different for different operating systems but the instructions are pretty good. 
+
+Here we are going to just include the library directly by downloading and linking to the library files. This doesn't take advantage of your computer's inbuilt fast linear algebra libraries, but it is enough for our purposes.
+
+Installation
+
+* Download the Armadillo zip file from this GitHub repository.
+* Extract it to the folder `armadillo-9.200.8` in your `cpp` folder.
+
+Join in:
+
+* New file: `armadillotest.cpp`:
+
+```c++
+#include <iostream>
+#include <armadillo>
+
+using namespace std;
+using namespace arma;
+
+int main()
+  {
+  mat A = randu<mat>(4,5);
+  mat B = randu<mat>(4,5);
+
+  cout << A*B.t() << endl;
+
+  return 0;
+  }
+```
+
+Compile:
+* `c++ armadillotest.cpp -o armadillotest -I H:/cpp/armadillo-9.200.8/include`
+
+*More to come!*
+
+### 14. More libraries for mathematics
 
 * Complex numbers: use `<complex>` library
-* Linear algebra: for vector/matrix support, I recommend [Armadillo](http://arma.sourceforge.net/), which uses syntax quite similar to that used in Matlab or Python (with NumPy). Setup is different for different operating systems but the instructions are pretty good.
 * Parallel processing: use OpenMP
 
-### 14. Optimisation
+### 15. Optimisation
 * When compiling, use the flag `-O2` to optimise for speed a little bit. Use `-O3` for more optimisation. `-O0` is the default. Example:
 ```bash
 c++ helloworld.cpp -o hello -O3
@@ -744,16 +781,5 @@ First let's check that you haven't already got a C++ compiler on your computer. 
 5. Check that it works by following steps 1--3 above.
 
 ## A2. Extra stuff we won't do
-
-### Installing Armadillo
-
-1. Download the stable version from [the Armadillo website](http://arma.sourceforge.net/download.html). It comes as a `.tar.xz` file.
-2. Unzip this file. On Windows, you might need to use [7-Zip](https://www.7-zip.org/) to unzip it.
-3. Move the armadillo folder to the folder you are creating the C++ files in.
-4. Compile along these lines:
-```bash
-    g++ example1.cpp -o example1 -O2 -I ./armadillo-7.200.3/include -DARMA_DONT_USE_WRAPPER -lblas -llapack
-```
-Replace -lblas with -lopenblas if you have OpenBLAS. On macOS, replace -lblas -llapack with -framework Accelerate
 
 ### Debugging
