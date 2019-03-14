@@ -408,6 +408,7 @@ Try:
     * Set up a 10x10 array `product`.
     * Loop through all rows and columns, so that `product[row][col] = row * col;`
     * Loop through all rows and columns again, `cout`ing appropriately the elements of the table.
+* Edit `read_from_file.cpp` so that it reads in a list of numbers from `numbers.txt` (no more than 10 numbers long), puts them in an array, and then calculates the mean of those numbers.
 
  Join in:
  * `const int n = 10;`
@@ -579,9 +580,89 @@ int main()
 * Compile and run, remembering to include all files in the compile command.
 * The header file is also a good place to put constants you want to have pre-defined in all of the files in your project.
 
+Your turn:
+* Add a function `is_absolute_value_less_than_1`. Put it its own file, add its declaration to the header file, make the main file output `is_absolute_value_less_than_1(n)`,  compile, and check that it works.
+* Harder version: Look up the data type for `true` and `false` in C++
+
+### 12. Pointers
+
+Where in memory is a variable being stored?
+
+Join in:
+* New file! `pointers.cpp`:
+```c++
+#include <iostream>
+
+using namespace std;
+
+int main(){
+   int x = 10;
+
+   cout << "Value of x is " << x << endl;
+   cout << "Address of x is " << &x << endl;
+
+   return 0;
+}
+```
+* The `&` sign indicates an address in memory.
+* A *pointer* is a variable whose value is the address of another variable, and is notated with a `*`
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+int main(){
+   int x = 10;
+   int *p;
+   p = &x;          
+
+   cout << "Value of x is " << x << endl;
+   cout << "Address stored in p is " << p << endl;
+   cout << "Value of *p variable is " << *p << endl;
+
+   return 0;
+}
+```
+
+Your turn:
+
+* See what happens to the value of `*p` if we change the value of `x`.
+
+Join in:
+
+* Historically pointers were used instead of arrays.
+* New file! `pointer_array.cpp`
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+int main () {
+    int primes[3] = {2, 3, 5};
+    int *p;
+
+    p = primes; // Set the point to point at the start of the array
+
+    for (int i = 0; i < MAX; i++) {
+        cout << "Address of primes[" << i << "] is " << p << endl;
+        cout << "Value of primes[" << i << "] is " << *p << endl;
+        p++;
+    }  
+
+   return 0;
+}
+```
+
+Your turn:
+
+* See what `*(primes + 2)` outputs.
+
+
 ## Part 3. Classes and preparing for real science
 
-### 12. Classes
+### 13. Classes
 Classes are one of the main things that separate C++ from C. Classes are ways for us to set up objects that have properties and functions which are particular to that type of object.
 
 Join in:
@@ -706,9 +787,9 @@ Your turn:
 
 * Put the class declaration and `set_dimensions` definition in a header file, `rectangle.hpp`, and call it from `rectangles.cpp`
 
-### 13. Armadillo, for vectors and matrices
+### 14. Armadillo, for vectors and matrices
 
-[Armadillo](http://arma.sourceforge.net/) is a linear algebra library for C++ which uses syntax quite similar to that used in Matlab or Python (with NumPy). Setup is different for different operating systems but the instructions are pretty good. 
+[Armadillo](http://arma.sourceforge.net/) is a linear algebra library for C++ which uses syntax quite similar to that used in Matlab or Python (with NumPy). Setup is different for different operating systems but the instructions are pretty good.
 
 Here we are going to just include the library directly by downloading and linking to the library files. This doesn't take advantage of your computer's inbuilt fast linear algebra libraries, but it is enough for our purposes.
 
@@ -744,12 +825,12 @@ Compile:
 
 *More to come!*
 
-### 14. More libraries for mathematics
+### 15. More libraries for mathematics
 
 * Complex numbers: use `<complex>` library
 * Parallel processing: use OpenMP
 
-### 15. Optimisation
+### 16. Optimisation
 * When compiling, use the flag `-O2` to optimise for speed a little bit. Use `-O3` for more optimisation. `-O0` is the default. Example:
 ```bash
 c++ helloworld.cpp -o hello -O3
