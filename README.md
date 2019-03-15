@@ -259,6 +259,7 @@ int main()
 }
 ```
 * Compile and run!
+* Reference: [the difference between `++i` and `i++`](https://dev.to/somedood/the-difference-between-x-and-x-44dl)
 
 Try:
 * Save the script as `cube_numbers.cpp`
@@ -581,8 +582,11 @@ int main()
 * The header file is also a good place to put constants you want to have pre-defined in all of the files in your project.
 
 Your turn:
-* Add a function `is_absolute_value_less_than_1`. Put it its own file, add its declaration to the header file, make the main file output `is_absolute_value_less_than_1(n)`,  compile, and check that it works.
+* Add a function `is_absolute_value_less_than_1`. Put it in its own file, add its declaration to the header file, make the main file output `is_absolute_value_less_than_1(n)`,  compile, and check that it works.
 * Harder version: Look up the data type for `true` and `false` in C++
+
+
+## Part 3. Classes and preparing for real science
 
 ### 12. Pointers
 
@@ -659,8 +663,6 @@ Your turn:
 
 * See what `*(primes + 2)` outputs.
 
-
-## Part 3. Classes and preparing for real science
 
 ### 13. Classes
 Classes are one of the main things that separate C++ from C. Classes are ways for us to set up objects that have properties and functions which are particular to that type of object.
