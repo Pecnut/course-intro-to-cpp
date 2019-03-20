@@ -4,7 +4,7 @@ Introduction to C++ course for the CM Hub at Imperial College
 * **Part 0:** Setting up C++
 * **Part 1:** Hello world! Your first steps with C++
 * **Part 2:** Arrays, files and functions
-* **Part 3:** Classes and preparing for real science
+* **Part 3:** Pointers, classes and preparing for real science
 
 ## Aims of the course
 
@@ -586,7 +586,7 @@ Your turn:
 * Harder version: Look up the data type for `true` and `false` in C++
 
 
-## Part 3. Classes and preparing for real science
+## Part 3. Pointers, classes and preparing for real science
 
 ### 12. Pointers
 
@@ -652,7 +652,7 @@ int main () {
     for (int i = 0; i < 3; i++) {
         cout << "Address of primes[" << i << "] is " << p << endl;
         cout << "Value of primes[" << i << "] is " << *p << endl;
-        p++;
+        ++p;
     }  
 
    return 0;
