@@ -1,0 +1,7 @@
+1. Semicolon missing
+2. Not declaring i
+3. void should be int
+4. function order AND cin wrong arrows
+5. #include iostream missing <>
+6. missing <<, missing }, additional ; after fors
+7. wrong brackets and commas in for instead of semicolons

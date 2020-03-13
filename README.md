@@ -6,11 +6,20 @@ Introduction to C++ course for the CM Hub at Imperial College
 * **Part 2:** Arrays, files and functions
 * **Part 3:** Pointers, classes and preparing for real science
 
-## Aims of the course
+## The Graduate School logo
+<img src="/readme-images/grad-school-logo.png">
 
-* You can write a simple C++ program
-* You can understand and edit more complicated C++ programs you have been given
-* You feel comfortable searching online for help
+## After completing this workshop, you will be better able to
+* define the terms source file, compiler, and executable,
+* use a compiler to create and run simple codes,
+* apply fundamental components of the C++ language including variables, loops, and conditionals,
+* create programs designed to solve simple numerical problems,
+* interpret common compiler and run-time errors and use these to help debug a program.
+
+In short, you will
+* be able to write a simple C++ program,
+* be able to understand and edit more complicated C++ programs you have been given,
+* feel comfortable searching online for help.
 
 ## Part 0. Setting up C++
 
@@ -28,9 +37,9 @@ We are going to have two windows open at the same time:
 ### Getting C++ set up on the college computers
 1. Open a browser and navigate to Imperial College [Software Hub](https://softwarehub.imperial.ac.uk/?labs)
 2. Search for `atom` in the search box
-3. The Atom text editor (v1.29.0 as of Mar 11, 2019) is one of the few search results. Just click `launch`  - done!
+3. The Atom text editor is one of the few search results. Just click `launch`  - done!
 4. Clear the search box and then search for `mingw` in the search box
-5. Among the small set of search results that pop up, launch `MinGW x64 7.3.0` (as of Mar 11, 2019).
+5. Among the small set of search results that pop up, launch `MinGW 1.0` (the newer version plays badly with Armadillo).
 6. You are all set!
 
 ### Getting C++ set up on your own machine
@@ -61,7 +70,7 @@ In short: C++ is a robust, fast language whose steep learning curve makes it wor
 
 1. Create a new directory in your home drive (H:) called `cpp`. We are going to save our files in here.
 2. On the command line:
-    1. Change directory to the H: drive by typing `H:`
+    1. Change directory to the H: drive by typing `H:` (or from within the MinGW window, `cd H:\`)
     2. Change directory to your new `cpp` directory by typing `cd cpp`
 
 ### 3. Hello world!
@@ -578,7 +587,10 @@ int main()
 
 (`sign_function.cpp` and `absolute_value.cpp` unchanged)
 
-* Compile and run, remembering to include all files in the compile command.
+* Compile and run, remembering to include all files in the compile command:
+```bash
+c++ sign_function.cpp absolute_value.cpp learning_functions.cpp -o sign
+```
 * The header file is also a good place to put constants you want to have pre-defined in all of the files in your project.
 
 Your turn:
@@ -588,7 +600,28 @@ Your turn:
 
 ## Part 3. Pointers, classes and preparing for real science
 
-### 12. Pointers
+### 12. Debugging
+
+* Your turn:
+    * Download the scripts from the debugging folder and try to run them. Can you fix them all?
+
+
+### 13. Makefiles
+
+* Long compilation scripts are a bit much:
+```bash
+c++ sign_function.cpp absolute_value.cpp learning_functions.cpp -o sign
+```
+* So let's put it in a makefile:
+```bash
+all:
+    c++ sign_function.cpp absolute_value.cpp learning_functions.cpp -o sign
+```
+* (note you need a tab at the beginning, not spaces. Might need to be careful in Atom)
+* Then run `make all`
+
+
+### 14. Pointers
 
 Where in memory is a variable being stored?
 
@@ -664,7 +697,7 @@ Your turn:
 * See what `*(primes + 2)` outputs.
 
 
-### 13. Classes
+### 15. Classes
 Classes are one of the main things that separate C++ from C. Classes are ways for us to set up objects that have properties and functions which are particular to that type of object.
 
 Join in:
@@ -789,7 +822,11 @@ Your turn:
 
 * Put the class declaration and `set_dimensions` definition in a header file, `rectangle.hpp`, and call it from `rectangles.cpp`
 
-### 14. Armadillo, for vectors and matrices
+Your turn:
+
+* Create a class `complex_number`. Set up some functions for adding and multiplying them.
+
+### 16. Armadillo, for vectors and matrices
 
 [Armadillo](http://arma.sourceforge.net/) is a linear algebra library for C++ which uses syntax quite similar to that used in Matlab or Python (with NumPy). Setup is different for different operating systems but the instructions are pretty good.
 
@@ -802,7 +839,7 @@ Installation
 
 Join in:
 
-* New file: `armadillotest.cpp`:
+* New file: `armadillo_test.cpp`:
 
 ```c++
 #include <iostream>
@@ -823,7 +860,7 @@ int main()
 ```
 
 Compile:
-* `c++ armadillotest.cpp -o armadillotest -I H:/cpp/armadillo-9.200.8/include`
+* `c++ armadillo_test.cpp -o armadillo_test -I H:/cpp/armadillo-9.200.8/include`
 
 *More to come!*
 
