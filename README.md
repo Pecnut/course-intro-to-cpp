@@ -903,3 +903,6 @@ First let's check that you haven't already got a C++ compiler on your computer. 
 ## A2. Extra stuff we won't do
 
 ### Debugging
+
+# Licence
+This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Licence](http://creativecommons.org/licenses/by-nc-sa/4.0/).
