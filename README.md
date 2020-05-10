@@ -75,13 +75,13 @@ In short: C++ is a robust, fast language whose steep learning curve makes it wor
 
 ### 2. Getting ready
 
-## On the college computers:
+#### On the college computers:
 1. Create a new directory (folder) in your home drive (H:) called `cpp`. We are going to save our files in here.
 2. On the command line:
     1. Change directory to the H: drive by typing `H:` (or from within the MinGW window, `cd H:\`)
     2. Change directory to your new `cpp` directory by typing `cd cpp`
 
-## On your own computer:
+#### On your own computer:
 1. Create a new directory (folder) in your home folder called `cpp`. We are going to save our files in here.
 2. On the command line:
     1. Navigate to your home folder (possibly by typing `cd ~`)
