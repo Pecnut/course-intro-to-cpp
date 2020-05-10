@@ -21,9 +21,14 @@ In short, you will
 * be able to understand and edit more complicated C++ programs you have been given,
 * feel comfortable searching online for help.
 
-## Part 0. Setting up C++
+## YouTube videos for distance learning
+Timestamps are in the descriptions and correspond to the numbering in this document.
+* Part 1 (coming soon). You must have C++ set up on your machine before starting.
+* Part 2 (coming soon)
+* Part 3 (coming soon)
+* Playlist (coming soon)
 
-In this class, we are going to be using C++ as it is installed on the college computers running Windows. Everything in these instructions will work just fine on your personal Mac or Linux machines. However. if you want to use your own Windows machine, that's OK too, but the setup can be a bit awkward and we are unlikely to have time to support it. In case you want to install a C++ compiler on your own Windows computer, the instructions are included [in the appendix](#appendix).
+## Part 0. Setting up C++
 
 For some programming languages, like Matlab, there is just one program you need to open to write your code and then run it. For others, like C++, you will need one program to write your code, and then one program to *compile* it.
 
@@ -34,7 +39,9 @@ We are going to have two windows open at the same time:
 1. A text editor (we are going to use [Atom](https://atom.io/))
 2. The command line or terminal, where a C++ compiler has already been installed and is working
 
-### Getting C++ set up on the college computers
+*Integrated Development Environments* (IDEs) also exist, which often combine a text editor and compiler in one useful program: XCode, Code::Blocks and (to a lesser degree) Visual Studio Code are examples. In scientific computing, we typically develop on different machines to those we end up running on, so in this class we will keep the two ideas separate.
+
+### Getting C++ set up on the college computers running Windows
 1. Open a browser and navigate to Imperial College [Software Hub](https://softwarehub.imperial.ac.uk/?labs)
 2. Search for `atom` in the search box
 3. The Atom text editor is one of the few search results. Just click `launch`  - done!
@@ -43,7 +50,7 @@ We are going to have two windows open at the same time:
 6. You are all set!
 
 ### Getting C++ set up on your own machine
-See [the appendix](#appendix).
+Instructions are in [the appendix](#appendix).
 
 
 ## Part 1. Hello world!
@@ -68,9 +75,16 @@ In short: C++ is a robust, fast language whose steep learning curve makes it wor
 
 ### 2. Getting ready
 
-1. Create a new directory in your home drive (H:) called `cpp`. We are going to save our files in here.
+## On the college computers:
+1. Create a new directory (folder) in your home drive (H:) called `cpp`. We are going to save our files in here.
 2. On the command line:
     1. Change directory to the H: drive by typing `H:` (or from within the MinGW window, `cd H:\`)
+    2. Change directory to your new `cpp` directory by typing `cd cpp`
+
+## On your own computer:
+1. Create a new directory (folder) in your home folder called `cpp`. We are going to save our files in here.
+2. On the command line:
+    1. Navigate to your home folder (possibly by typing `cd ~`)
     2. Change directory to your new `cpp` directory by typing `cd cpp`
 
 ### 3. Hello world!
@@ -887,6 +901,8 @@ We are going to be writing our code in a text editor. This is a program which le
 A compiler is a program which takes the text file we have written and turns it into something we can run. Compilers do not look like normal programs, with windows and graphics. Instead they are run using the command line. We will discuss this in class but for now, follow the instructions below, depending on which type of machine you will use.
 
 #### Instructions for Mac and Linux
+A C++ compiler should be installed by default on macOS and most Linux distributions.
+
 1. Open Terminal.
 2. Type `c++` and press Enter.
 3. If it says `clang: error: no input files` or `c++: fatal error: no input files`, then you are ready to go.
