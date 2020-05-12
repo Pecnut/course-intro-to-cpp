@@ -875,8 +875,8 @@ int main()
 ```
 
 Compile:
-* (On your own machine) `c++ armadillo_test.cpp -o armadillo_test -I ~/cpp/armadillo-9.870.2/include`
-* (On college machines) `c++ armadillo_test.cpp -o armadillo_test -I H:/cpp/armadillo-9.870.2/include`
+* (On your own machine) `c++ armadillo_test.cpp -o armadillo_test -I ~/cpp/armadillo-9.870.2/include -llapack -lblas`
+* (On college machines) `c++ armadillo_test.cpp -o armadillo_test -I H:/cpp/armadillo-9.870.2/include -llapack -lblas`
 
 * New file: `armadillo_equations.cpp`:
 
@@ -902,15 +902,15 @@ int main()
 
     cout << x << endl;
 
-return 0;
+    return 0;
 }
 ```
 
 Compile:
-* (On your own machine) `c++ armadillo_equations.cpp -o armadillo_equations -I ~/cpp/armadillo-9.200.8/include -llapack`
-* (On college machines) `c++ armadillo_equations.cpp -o armadillo_equations -I H:/cpp/armadillo-9.200.8/include -llapack`
+* (On your own machine) `c++ armadillo_equations.cpp -o armadillo_equations -I ~/cpp/armadillo-9.200.8/include -llapack -lblas`
+* (On college machines) `c++ armadillo_equations.cpp -o armadillo_equations -I H:/cpp/armadillo-9.200.8/include -llapack -lblas`
 
-We should get the solution: *x* = 19, *y* = –14, *z* = –4. 
+We should get the solution: *x* = 19, *y* = –14, *z* = –4.
 
 ### 15. More libraries for mathematics
 
