@@ -594,6 +594,7 @@ int main()
     int n;
     n = 3;
     cout << sign_function(n) << endl;
+    cout << absolute_value(n) << endl;
 
     return 0;
 }
@@ -694,7 +695,7 @@ int main () {
     int primes[3] = {2, 3, 5};
     int *p;
 
-    p = primes; // Set the point to point at the start of the array
+    p = primes; // Set the pointer to point at the start of the array
 
     for (int i = 0; i < 3; i++) {
         cout << "Address of primes[" << i << "] is " << p << endl;
@@ -796,7 +797,7 @@ class Rectangle {
    public:
       double width;   // Length of rectangle
       double height;   // Height of rectangle
-      int area() {return width*height;}
+      double area() {return width*height;}
 };
 
 ```
@@ -816,7 +817,7 @@ class Rectangle {
    public:
       double width;   // Length of rectangle
       double height;   // Height of rectangle
-      int area() {return width*height;}
+      double area() {return width*height;}
       void set_dimensions (double,double);
 };
 
@@ -849,7 +850,7 @@ Here we are going to just include the library directly by downloading and linkin
 Installation
 
 * Download the Armadillo zip file from this GitHub repository.
-* Extract it to the folder `armadillo-9.200.8` in your `cpp` folder.
+* Extract it to the folder `armadillo-9.870.2` in your `cpp` folder.
 
 Join in:
 
@@ -863,20 +864,53 @@ using namespace std;
 using namespace arma;
 
 int main()
-  {
-  mat A = randu<mat>(4,5);
-  mat B = randu<mat>(4,5);
+{
+    mat A = randu<mat>(4,5);
+    mat B = randu<mat>(4,5);
 
-  cout << A*B.t() << endl;
+    cout << A*B.t() << endl;
 
-  return 0;
-  }
+    return 0;
+}
 ```
 
 Compile:
-* `c++ armadillo_test.cpp -o armadillo_test -I H:/cpp/armadillo-9.200.8/include`
+* (On your own machine) `c++ armadillo_test.cpp -o armadillo_test -I ~/cpp/armadillo-9.870.2/include`
+* (On college machines) `c++ armadillo_test.cpp -o armadillo_test -I H:/cpp/armadillo-9.870.2/include`
 
-*More to come!*
+* New file: `armadillo_equations.cpp`:
+
+Let's solve the system of equations
+* *x* + 5*z* = –1
+* 2*x* + *y* + 6z = 0
+* 3*x* + 4*y* = 1
+
+```c++
+#include <iostream>
+#include <armadillo>
+
+using namespace std;
+using namespace arma;
+
+int main()
+{
+    mat A = mat("1 0 5; 2 1 6; 3 4 0");
+    mat b = mat("-1; 0; 1");
+    mat x;
+
+    x = solve(A,b);
+
+    cout << x << endl;
+
+return 0;
+}
+```
+
+Compile:
+* (On your own machine) `c++ armadillo_equations.cpp -o armadillo_equations -I ~/cpp/armadillo-9.200.8/include -llapack`
+* (On college machines) `c++ armadillo_equations.cpp -o armadillo_equations -I H:/cpp/armadillo-9.200.8/include -llapack`
+
+We should get the solution: *x* = 19, *y* = –14, *z* = –4. 
 
 ### 15. More libraries for mathematics
 
