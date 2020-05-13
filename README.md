@@ -23,10 +23,11 @@ In short, you will
 
 ## YouTube videos for distance learning
 Timestamps are in the descriptions and correspond to the numbering in this document.
+* [Pre-course instructions](https://www.youtube.com/watch?v=fk4msOijTtU)
 * Part 1 (coming soon). You must have C++ set up on your machine before starting.
 * Part 2 (coming soon)
-* Part 3 (coming soon)
-* Playlist (coming soon)
+* [Part 3](https://www.youtube.com/watch?v=qCHm1EjD-JI)
+* [Playlist](https://www.youtube.com/playlist?list=PLcRp2oAQBugtTRlYYarxVyrtwDHS5Mtiw)
 
 ## Part 0. Setting up C++
 
