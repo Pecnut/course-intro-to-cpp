@@ -23,7 +23,7 @@ In short, you will
 
 ## YouTube videos for distance learning
 Timestamps are in the descriptions and correspond to the numbering in this document.
-* [Pre-course instructions](https://www.youtube.com/watch?v=fk4msOijTtU)
+* [Part 0: Pre-course instructions](https://www.youtube.com/watch?v=fk4msOijTtU)
 * Part 1 (coming soon). You must have C++ set up on your machine before starting.
 * Part 2 (coming soon)
 * [Part 3](https://www.youtube.com/watch?v=qCHm1EjD-JI)
@@ -913,12 +913,12 @@ Compile:
 
 We should get the solution: *x* = 19, *y* = –14, *z* = –4.
 
-### 15. More libraries for mathematics
+### 17. More libraries for mathematics
 
 * Complex numbers: use `<complex>` library
 * Parallel processing: use OpenMP
 
-### 16. Optimisation
+### 18. Optimisation
 * When compiling, use the flag `-O2` to optimise for speed a little bit. Use `-O3` for more optimisation. `-O0` is the default. Example:
 ```bash
 c++ helloworld.cpp -o hello -O3
