@@ -316,7 +316,7 @@ Try:
 
 ### 9. Saving and reading data
 
-To save and read file, we need to include the `<fstream>` library.
+To save and read files, we need to include the `<fstream>` library.
 
 Join in:
 
@@ -340,7 +340,7 @@ int main()
 ```
 
 Your turn:
-* Print the first 10 squares to a text file.
+* Create a new file, `save_to_file2.cpp`, where you print the first 10 squares to a text file called `square_numbers.txt`.
 * Run your program again. What can you say about how it writes to the text file?
 * Replace `myfile.open ("square_numbers.txt");` with `myfile.open ("square_numbers.txt", ios_base::app);` to make C++ append to the end of a text file, rather than overwrite.
 
