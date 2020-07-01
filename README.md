@@ -25,7 +25,7 @@ In short, you will
 Timestamps are in the descriptions and correspond to the numbering in this document.
 * [Part 0: Pre-course instructions](https://www.youtube.com/watch?v=fk4msOijTtU)
 * [Part 1](https://youtu.be/wGOPWMY80lw). You must have C++ set up on your machine before starting.
-* Part 2 is taught live!
+* [Part 2](https://www.youtube.com/watch?v=4xHiVH4_XGo)
 * [Part 3](https://www.youtube.com/watch?v=qCHm1EjD-JI)
 * [Playlist](https://www.youtube.com/playlist?list=PLcRp2oAQBugtTRlYYarxVyrtwDHS5Mtiw)
 
